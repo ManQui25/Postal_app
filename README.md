@@ -10,7 +10,7 @@ Tiene 2 vistas, la primera es `/import` en la cual se cargan los datos del archi
 la otra es `/postal/id/` en donde se ingresa un número entre el 1 al 999 y retorna la latitud y la longitud ligadas a ese id.
 
 La aplicación se puede subir tanto a un contenedor de docker como a una aplicación de heroku, como es el caso.
-link: 
+Link base: https://morning-plateau-36411.herokuapp.com/
 
 Pasos para usarla localmente:
 1. Abir una terminal en la carpeta donde se tiene almacenado (Tener python previamente instalado)
@@ -21,7 +21,8 @@ Pasos para usarla localmente:
 6. abrir la dirección que retorna la terminal y añadir a la url el endpoint `/import` para ingresar a la base de datos los datos del archivo csv
 
 
-La segunda aplicación trae los datos del anterior microservicio para ingresarlos en la petición que se realiza a la api de los códigos postales, la aplicación está desarrollada en el framework flask y también se puede ubpir a un contenedor de docker así como a una app de heroku, link:
+La segunda aplicación trae los datos del anterior microservicio para ingresarlos en la petición que se realiza a la api de los códigos postales, la aplicación está desarrollada en el framework flask y también se puede ubpir a un contenedor de docker así como a una app de heroku.
+Link: https://sheltered-gorge-61933.herokuapp.com/
 Pasos para el uso local: 
 1. Abir una terminal en la carpeta donde se tiene almacenado (Tener python previamente instalado)
 2. ejecutar `python3 -m venv env` si es en linux/mac o `python -m venv env` si es en windows
@@ -29,4 +30,13 @@ Pasos para el uso local:
 4. ejecutar el comando `python3/py pip install -r requirements.txt` (python3 o py dependiendo del sistema operativo)
 5. ejecutar el comando `python3/py main.py`
 6.  abrir la dirección que retorna la terminal y añadir a la url el endpoint `/postal-code/id` en donde id es el id de un objeto de la aplicación anterior.
+
+Pasos para el uso en la nube:
+1. Ingresar a https://morning-plateau-36411.herokuapp.com/import/
+2. https://sheltered-gorge-61933.herokuapp.com/postal-code/id en donde se reemplaza id por un número entre el 1 al 999.
+3. La aplicación retornará los datos de la solicitud realizada a la api en formato json
+
+Consideraciones:
+El archivo csv que se importa en el microservicio de la base de datos se limitó a 1000 registros debido a las limitaciones de almacenamiento que ofrece la capa gratuita de heroku, pero todo esto es 100% funcional con el archivo completo.
+También destacar que cada una de las aplicaciones tiene su correspondiente archivo Dockerfile para subirla a un contenedor en Docker.
 
