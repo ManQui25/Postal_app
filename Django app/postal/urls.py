@@ -19,8 +19,6 @@ from django.urls import path
 from main_app.views import import_csv, PostalView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('import/', import_csv),
     path('postal/<int:id>/', PostalView.as_view()),
-#    path('list/', PostalListView.as_view()),
 ]
